@@ -1,5 +1,6 @@
 package com.massive.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.massive.displaythejoke.ShowTheJoke;
 import com.massive.javajokes.Jokes;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        Intent intent
+                = new Intent(this , ShowTheJoke.class);
+        intent.putExtra("Joke", jokes.getJoke());
+        startActivity(intent);
         Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();
     }
 
