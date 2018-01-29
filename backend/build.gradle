@@ -33,6 +33,7 @@ dependencies {
 
     implementation 'javax.servlet:servlet-api:2.5'
 
+    implementation project(":javaJokes")
 //    implementation 'com.google.endpoints:endpoints-framework:2.0.9'
 //    implementation 'javax.inject:javax.inject:1'
 //
