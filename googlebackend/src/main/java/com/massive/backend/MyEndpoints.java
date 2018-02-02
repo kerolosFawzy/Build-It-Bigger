@@ -3,9 +3,10 @@ package com.massive.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
-import com.massive.javajokes.Jokes;
+import com.google.api.server.spi.config.Named;
+//import com.massive.javajokes.Jokes;
 @Api(
-        name = "myApi",
+        name = "jokeApi",
         version = "v1",
         namespace = @ApiNamespace(
                 ownerDomain = "backend.massive.com",
@@ -13,12 +14,12 @@ import com.massive.javajokes.Jokes;
                 packagePath = ""
         )
 )
-public class MyEndpoint {
+public class MyEndpoints {
 
     @ApiMethod(name = "SayJoke")
-    public MyBean SayJoke(Jokes Joke) {
+    public MyBean SayJoke(@Named("Joke") String Joke) {
         MyBean response = new MyBean();
-        response.setData("HaHaHa, " + Joke.getJoke());
+        response.setData("HaHaHa, " + Joke);
         return response;
     }
 

@@ -7,11 +7,15 @@
         <!-- V2: End of v2 section -->
         <init-param>
             <param-name>services</param-name>
-            <param-value>com.massive.backend.MyEndpoint</param-value>
+            <param-value>com.massive.backend.MyEndpoints</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>SystemServiceServlet</servlet-name>
         <url-pattern>/_ah/spi/*</url-pattern>
     </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 </web-app>

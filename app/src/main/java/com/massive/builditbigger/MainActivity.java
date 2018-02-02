@@ -13,7 +13,6 @@ import com.massive.javajokes.Jokes;
 
 public class MainActivity extends AppCompatActivity {
     Jokes jokes;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

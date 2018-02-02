@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.cloud.tools.endpoints-framework-client'
-
+//apply plugin: 'com.google.cloud.tools.endpoints-framework-client'
 buildscript {
     repositories {
         jcenter()
@@ -27,10 +26,14 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
     }
 
 //    packagingOptions{
 //        exclude 'com/google/appengine/repackaged/org/*'
+//    }
+//    endpointsClient {
+//        // client-side properties
 //    }
 
     android {
@@ -47,7 +50,8 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    endpointsServer project(path: ':backend', configuration: 'endpoints')
+    implementation 'com.google.android.gms:play-services-auth:11.8.0'
+//    endpointsServer project(path: ':googlebackend', configuration: 'endpoints')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -59,9 +63,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.google.android.gms:play-services-ads:11.8.0'
     implementation project(':javaJokes')
-    implementation project(path: ':backend', configuration: 'android-endpoints')
+    implementation project(path: ':googlebackend', configuration: 'android-endpoints')
     implementation project(':displaythejoke')
-    implementation 'com.google.http-client:google-http-client:1.23.0'
-    implementation 'com.google.api-client:google-api-client:1.23.0'
+//    implementation 'com.google.http-client:google-http-client:1.23.0'
+//    implementation 'com.google.api-client:google-api-client:1.23.0'
 
 }
