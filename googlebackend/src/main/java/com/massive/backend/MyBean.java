@@ -1,15 +1,15 @@
 package com.massive.backend;
-
+import com.massive.javajokes.*;
 /** The object model for the data we are sending through endpoints */
 public class MyBean {
 
-    private String myData;
+    private Jokes myJoke = new Jokes();
 
     public String getData() {
-        return myData;
+        return myJoke.getJoke();
     }
 
-    public void setData(String data) {
-        myData = data;
-    }
+//    public void setData(String data) {
+//        myData = data;
+//    }
 }

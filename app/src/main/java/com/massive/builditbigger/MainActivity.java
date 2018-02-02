@@ -1,5 +1,6 @@
 package com.massive.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.massive.javajokes.Jokes;
 
 public class MainActivity extends AppCompatActivity {
     Jokes jokes;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -41,10 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Intent intent
-                = new Intent(this, ShowTheJoke.class);
-        intent.putExtra("Joke", jokes.getJoke());
-        startActivity(intent);
+        new EndpointAsyncTask().execute(new Pair<context, String>(this, jokes.getJoke()));
         Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();
     }
 

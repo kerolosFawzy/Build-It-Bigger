@@ -19,6 +19,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        flavorDimensions "free" , "paid"
 
     }
     buildTypes {
@@ -27,6 +28,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
+    }
+
+    productFlavors{
+
+        free{
+            dimension "free"
+            applicationId "com.massive.builditbigger.free"
+        }
+
+        paid{
+            dimension "paid"
+            applicationId "com.massive.builditbigger.paid"
+
+        }
     }
 
 //    packagingOptions{
