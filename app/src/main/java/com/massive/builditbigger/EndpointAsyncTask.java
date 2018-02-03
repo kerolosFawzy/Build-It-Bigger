@@ -50,4 +50,6 @@ public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
         intent.putExtra("Joke", result);
         context.startActivity(intent);
     }
+
+
 }

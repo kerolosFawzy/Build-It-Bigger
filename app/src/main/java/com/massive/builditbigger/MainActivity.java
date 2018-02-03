@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
         new EndpointAsyncTask().execute(new Pair<Context, String>(this, null));
-        Toast.makeText(this, jokes.getJoke(), Toast.LENGTH_SHORT).show();
     }
 
 

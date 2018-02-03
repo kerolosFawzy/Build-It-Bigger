@@ -1,15 +1,13 @@
 package com.massive.backend;
-import com.massive.javajokes.Jokes;
-
 public class MyBean {
 
-    private Jokes myJoke = new Jokes();
+    private String myData;
 
     public String getData() {
-        return myJoke.getJoke();
+        return myData;
     }
 
-//    public void setData(String data) {
-//        myData = data;
-//    }
+    void setData(String data) {
+        myData = data;
+    }
 }
