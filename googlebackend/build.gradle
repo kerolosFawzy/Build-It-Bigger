@@ -48,7 +48,15 @@ dependencies {
 
 appengine {
     downloadSdk = true
+    appengine {
+        httpAddress = "0.0.0.0"
+        httpPort = 8888
+        downloadSdk = true
+        appcfg {
+            oauth2 = true
+        }
 
+    }
     appcfg {
         oauth2 = true
         def application = findProperty("appengine.deploy.application")

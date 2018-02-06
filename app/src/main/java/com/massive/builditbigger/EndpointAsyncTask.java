@@ -26,7 +26,7 @@ public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
         if (myApiService == null) {
             JokeApi.Builder builder = new JokeApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),
                     null)
-                    .setRootUrl("http://localhost:8080/_ah/api/jokeApi/v1/SayJoke")
+                    .setRootUrl("http://192.168.0.105:8080/_ah/api")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                 @Override
                 public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
@@ -49,6 +49,5 @@ public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
         intent.putExtra("Joke", result);
         context.startActivity(intent);
     }
-
 
 }

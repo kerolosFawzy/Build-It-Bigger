@@ -20,8 +20,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-        flavorDimensions "free" , "paid"
-
+        flavorDimensions "default"
     }
     buildTypes {
         release {
@@ -31,26 +30,16 @@ android {
 
     }
 
-    productFlavors{
+    productFlavors {
 
-        free{
-            dimension "free"
+        free {
             applicationId "com.massive.builditbigger.free"
         }
 
-        paid{
-            dimension "paid"
+        paid {
             applicationId "com.massive.builditbigger.paid"
-
         }
     }
-
-//    packagingOptions{
-//        exclude 'com/google/appengine/repackaged/org/*'
-//    }
-//    endpointsClient {
-//        // client-side properties
-//    }
 
     android {
         lintOptions {
