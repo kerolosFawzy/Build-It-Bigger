@@ -13,6 +13,7 @@ import com.massive.backend.jokeApi.JokeApi;
 import com.massive.displaythejoke.ShowTheJoke;
 
 import java.io.IOException;
+
 public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static JokeApi myApiService = null;
 
@@ -20,16 +21,18 @@ public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
-        if(myApiService == null) {
-            JokeApi.Builder builder = new JokeApi.Builder(AndroidHttp.newCompatibleTransport(),
-                    new AndroidJsonFactory(), null)
-                    .setRootUrl("http://10.0.2.2:8080/_ah/api/jokeApi/v1/SayJoke")
+        this.context = params[0].first;
+
+        if (myApiService == null) {
+            JokeApi.Builder builder = new JokeApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),
+                    null)
+                    .setRootUrl("http://localhost:8080/_ah/api/jokeApi/v1/SayJoke")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-                        @Override
-                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
-                            abstractGoogleClientRequest.setDisableGZipContent(true);
-                        }
-                    });
+                @Override
+                public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
+                    abstractGoogleClientRequest.setDisableGZipContent(true);
+                }
+            });
             myApiService = builder.build();
         }
         try {
@@ -42,8 +45,7 @@ public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
 
     @Override
     protected void onPostExecute(String result) {
-        Intent intent
-                = new Intent(context, ShowTheJoke.class);
+        Intent intent = new Intent(context, ShowTheJoke.class);
         intent.putExtra("Joke", result);
         context.startActivity(intent);
     }
