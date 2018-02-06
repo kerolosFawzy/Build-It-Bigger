@@ -9,7 +9,6 @@ import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.google.appengine.repackaged.com.google.common.base.Pair;
 import com.massive.displaythejoke.ShowTheJoke;
-
 import java.io.IOException;
 
 
