@@ -10,7 +10,6 @@ import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.massive.backend.jokeApi.JokeApi;
-import com.massive.backend.jokeApi.model.MyBean;
 import com.massive.displaythejoke.ShowTheJoke;
 
 import java.io.IOException;
@@ -33,9 +32,9 @@ public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
                     });
             myApiService = builder.build();
         }
-
         try {
-            return myApiService.SayJoke(new MyBean()).execute().getData();
+            String joke = myApiService.sayJoke().execute().getData();
+            return joke;
         } catch (IOException e) {
             return e.getMessage();
         }
