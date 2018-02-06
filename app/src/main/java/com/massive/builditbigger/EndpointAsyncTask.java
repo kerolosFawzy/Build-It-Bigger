@@ -13,7 +13,7 @@ import java.io.IOException;
 
 
 import com.massive.backend.jokeApi.JokeApi;
-import com.massive.backend.jokeApio.model.JokeBean;
+import com.massive.backend.jokeApi.model.MyBean;
 public class EndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static jokeApi myApiService;
 
