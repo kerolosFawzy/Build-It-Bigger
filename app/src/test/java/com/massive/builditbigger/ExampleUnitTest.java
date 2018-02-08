@@ -2,38 +2,22 @@ package com.massive.builditbigger;
 
 import android.content.Context;
 import android.support.v4.util.Pair;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.concurrent.CountDownLatch;
-
-import static junit.framework.Assert.assertNotNull;
+import android.test.AndroidTestCase;
 
 
-public class ExampleUnitTest {
+public class ExampleUnitTest extends AndroidTestCase {
 
-    private static final String LOG_TAG = "NotNullJoke";
-    private final CountDownLatch mSignal = new CountDownLatch(1);
-    Context context;
-
-    @Before
-    public void setup() {
-        context = new MainActivity().context;
-    }
-
-    @Test
     @SuppressWarnings("unchecked")
     public void testJokeRetriever() {
+        String Joke = null;
         EndpointAsyncTask asyncTask = new EndpointAsyncTask();
-        asyncTask.execute(new Pair<Context, String>(context, null));
-        String s = null;
+        asyncTask.execute(new Pair<Context, String>(getContext(), null));
         try {
-            s = asyncTask.get();
+            Joke = asyncTask.get();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        assertNotNull(s);
+        assertNotNull(Joke);
     }
 
 }
